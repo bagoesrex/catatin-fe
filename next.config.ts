@@ -4,11 +4,13 @@ const nextConfig: NextConfig = {
   /* config options here */
   reactCompiler: true,
   images: {
-    remotePatterns: [{
-      protocol: 'https',
-      hostname: 'otakotaku.com',
-    },]
-  }
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "otakotaku.com",
+      },
+    ],
+  },
 };
 
 export default nextConfig;
