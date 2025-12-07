@@ -14,13 +14,13 @@ export default function Header() {
             variant={"ghost"}
             className="rounded-md px-4 py-2 text-gray-600 hover:bg-blue-400/10"
           >
-            <Link href="/register">Masuk</Link>
+            <Link href="/auth/register">Masuk</Link>
           </Button>
           <Button
             asChild
             className="rounded-md bg-blue-700 px-4 py-2 text-white hover:bg-blue-800"
           >
-            <Link href="/register">Daftar Gratis</Link>
+            <Link href="/auth/register">Daftar Gratis</Link>
           </Button>
         </nav>
       </div>
