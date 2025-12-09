@@ -35,7 +35,9 @@ export default function Layout({
         <main className="w-full">
           {/* <SidebarTrigger /> */}
           <DashboardHeader />
-          <div className="min-h-screen bg-blue-100/30 pt-15">{children}</div>
+          <div className="h-full min-h-screen bg-blue-100/30 pt-15">
+            {children}
+          </div>
         </main>
       </SidebarProvider>
     </QueryProvider>
