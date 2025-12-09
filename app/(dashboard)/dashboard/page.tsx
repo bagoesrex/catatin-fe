@@ -1,8 +1,11 @@
+"use client";
+
 import CustomBadge from "@/components/common/custom-badge";
 import DashboardCard from "@/components/common/dashboard-card";
 import { LatestTable } from "@/components/dashboard/latest-table";
 import MaxWidthWrapper from "@/components/layout/max-width-wrapper";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { useAuth } from "@/hooks/use-auth";
 import {
   ChevronRight,
   Hand,
@@ -13,12 +16,14 @@ import {
 import Link from "next/link";
 
 export default function DashboardPage() {
+  const { user } = useAuth();
+
   return (
     <MaxWidthWrapper className="px-7 py-8">
       <div className="mx-auto flex max-w-4xl flex-col space-y-3">
         <div>
           <h1 className="flex flex-row items-center gap-2 text-2xl font-bold">
-            Halo, <span className="text-blue-700">Megumine! </span>{" "}
+            Halo, <span className="text-blue-700">{user?.name}! </span>{" "}
             <Hand className="animate-bounce text-blue-700" />
           </h1>
           <p className="text-gray-600">

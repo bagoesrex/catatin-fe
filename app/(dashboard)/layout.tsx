@@ -5,21 +5,28 @@ import AppSidebar from "@/components/layout/sidebar/app-sidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { useAuth } from "@/hooks/use-auth";
 import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
 export default function Layout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { user, isLoading } = useAuth();
+  const { user, isLoading, refreshUser } = useAuth();
   const router = useRouter();
 
-  if (isLoading) return;
+  useEffect(() => {
+    refreshUser();
+  }, [refreshUser]);
 
-  if (!user) {
-    router.push("/auth/login");
-    return null;
-  }
+  useEffect(() => {
+    if (!isLoading && !user) {
+      router.replace("/auth/login");
+    }
+  }, [isLoading, user, router]);
+
+  if (isLoading || !user) return null;
+
   return (
     <SidebarProvider>
       <AppSidebar />

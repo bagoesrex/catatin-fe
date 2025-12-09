@@ -4,7 +4,7 @@ export function authMiddleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
   const token = req.cookies.get("auth-token")?.value;
 
-  const isAuthPage = ["/auth/login", "/auth/register"].includes(pathname);
+  const isAuthPage = pathname.startsWith("/auth");
   const isProtectedPage = pathname.startsWith("/dashboard");
 
   if (!token && isProtectedPage) {
