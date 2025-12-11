@@ -33,7 +33,6 @@ export default function Layout({
       <SidebarProvider>
         <AppSidebar />
         <main className="w-full">
-          {/* <SidebarTrigger /> */}
           <DashboardHeader />
           <div className="h-full min-h-screen bg-blue-100/30 pt-15">
             {children}

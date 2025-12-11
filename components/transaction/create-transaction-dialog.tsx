@@ -26,6 +26,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useCreateTransaction } from "@/hooks/use-transactions";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const contactSchema = z.object({
   title: z
@@ -43,6 +44,7 @@ const contactSchema = z.object({
 
 export function CreateTransactionDialog() {
   const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
@@ -73,7 +75,7 @@ export function CreateTransactionDialog() {
           className="size-fit rounded-md bg-blue-700 text-xs text-white hover:bg-blue-800"
         >
           <Plus size={5} />
-          Transaksi Baru
+          {!isMobile && "Transaksi Baru"}
         </Button>
       </DialogTrigger>
 

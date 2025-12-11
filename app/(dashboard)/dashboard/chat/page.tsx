@@ -5,11 +5,11 @@ import {
   CardFooter,
   CardHeader,
 } from "@/components/ui/card";
-import { Dot, Send } from "lucide-react";
+import { Clock, Dot, Send } from "lucide-react";
 
 export default function ChatPage() {
   return (
-    <MaxWidthWrapper className="h-full px-7 py-8">
+    <MaxWidthWrapper className="h-full px-4 py-8">
       <Card className="mx-auto flex h-full max-w-3xl flex-col justify-between space-y-3 p-0">
         <CardHeader className="flex items-center justify-between border-b border-b-gray-200 py-5">
           <div className="flex items-center justify-center gap-2">
@@ -27,7 +27,12 @@ export default function ChatPage() {
             <p className="text-sm">reset</p>
           </div>
         </CardHeader>
-        <CardContent></CardContent>
+        <CardContent>
+          <div className="flex flex-col items-center justify-center py-12 text-blue-700">
+            <Clock className="mb-2 h-10 w-10 animate-pulse" />
+            <p className="text-lg font-semibold">Coming Soon</p>
+          </div>
+        </CardContent>
         <CardFooter className="flex items-center justify-between border-t border-t-gray-200 py-5">
           <div className="flex w-full items-center justify-between rounded-md border border-gray-200 bg-gray-100 px-4 py-2">
             <p className="text-gray-500">Ketik transaksi anda disini...</p>

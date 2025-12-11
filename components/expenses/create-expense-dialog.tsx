@@ -12,7 +12,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { Input } from "@/components/ui/input";
-import { BanknoteArrowDown, Loader2, Plus, Save } from "lucide-react";
+import { BanknoteArrowDown, Loader2, Minus, Plus, Save } from "lucide-react";
 import z from "zod";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
@@ -26,6 +26,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { useCreateExpense } from "@/hooks/use-expenses";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const contactSchema = z.object({
   title: z
@@ -43,6 +44,7 @@ const contactSchema = z.object({
 
 export function CreateExpenseDialog() {
   const [isOpen, setIsOpen] = useState(false);
+  const isMobile = useIsMobile();
 
   const form = useForm<z.infer<typeof contactSchema>>({
     resolver: zodResolver(contactSchema),
@@ -72,8 +74,8 @@ export function CreateExpenseDialog() {
           type="button"
           className="size-fit rounded-md bg-blue-700 text-xs text-white hover:bg-blue-800"
         >
-          <Plus size={10} />
-          Expense Baru
+          {!isMobile ? <Plus size={10} /> : <Minus size={10} />}
+          {!isMobile && "Expense Baru"}
         </Button>
       </DialogTrigger>
 

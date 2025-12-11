@@ -1,6 +1,13 @@
 import { useTransactions } from "@/hooks/use-transactions";
 import { useExpenses } from "@/hooks/use-expenses";
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "../ui/table";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from "../ui/table";
 import React from "react";
 import dayjs from "dayjs";
 import isToday from "dayjs/plugin/isToday";
@@ -8,7 +15,8 @@ import isToday from "dayjs/plugin/isToday";
 dayjs.extend(isToday);
 
 export default function TransactionTable() {
-  const { data: transactions, isLoading: isLoadingTransactions } = useTransactions();
+  const { data: transactions, isLoading: isLoadingTransactions } =
+    useTransactions();
   const { data: expenses, isLoading: isLoadingExpenses } = useExpenses();
 
   const isLoading = isLoadingTransactions || isLoadingExpenses;
@@ -72,14 +80,14 @@ export default function TransactionTable() {
 
               return (
                 <TableRow key={item.id}>
-                  <TableCell className="pl-5">
-                    {formattedDate}
-                  </TableCell>
+                  <TableCell className="pl-5">{formattedDate}</TableCell>
 
                   <TableCell>{item.title}</TableCell>
 
                   <TableCell>
-                    <div className={`border border-gray-400 w-fit py-[0.7px] px-2 rounded-full text-xs ${item.type === "Pemasukan" ? "text-green-700 border border-green-200 bg-green-100" : "text-red-700 border-red-200 bg-red-100"}`}>
+                    <div
+                      className={`w-fit rounded-full border border-gray-400 px-2 py-[0.7px] text-xs ${item.type === "Pemasukan" ? "border border-green-200 bg-green-100 text-green-700" : "border-red-200 bg-red-100 text-red-700"}`}
+                    >
                       {item.type}
                     </div>
                   </TableCell>
@@ -88,9 +96,8 @@ export default function TransactionTable() {
                     Rp {item.amount.toLocaleString("id-ID")}
                   </TableCell>
                 </TableRow>
-              )
-            }
-            )}
+              );
+            })}
         </TableBody>
       </Table>
     </div>

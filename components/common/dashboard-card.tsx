@@ -19,7 +19,7 @@ export default function DashboardCard({
   iconBgColor,
 }: DashboardCardProps) {
   return (
-    <Card>
+    <Card className="gap-3">
       <CardHeader>
         <div className="flex flex-row items-center justify-between">
           <Icon

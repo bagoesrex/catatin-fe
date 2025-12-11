@@ -13,7 +13,7 @@ export default function DashboardPage() {
   const { user } = useAuth();
 
   return (
-    <MaxWidthWrapper className="px-7 py-8">
+    <MaxWidthWrapper className="px-5 py-8">
       <div className="mx-auto flex max-w-4xl flex-col space-y-3">
         <div>
           <h1 className="flex flex-row items-center gap-2 text-2xl font-bold">
@@ -27,7 +27,7 @@ export default function DashboardPage() {
         {/* Overview */}
         <DashboardOverview />
         <div className="mt-5 grid grid-cols-3 gap-4">
-          <div className="col-span-2 space-y-3">
+          <div className="col-span-3 space-y-3 md:col-span-2">
             {/* Latest Transaction */}
             <div className="flex flex-row items-center justify-between">
               <h2 className="text-md font-bold">Transaksi Terakhir</h2>
@@ -40,7 +40,7 @@ export default function DashboardPage() {
             </div>
             <DashboardLatestTransaction />
           </div>
-          <div className="col-span-1 space-y-3">
+          <div className="col-span-3 space-y-3 md:col-span-1">
             <h2 className="text-md font-bold">Aksi Cepat</h2>
             <Card className="bg-blue-700 pb-0 text-white">
               <CardContent>
@@ -64,7 +64,7 @@ export default function DashboardPage() {
               </CardContent>
               <CardFooter className="rounded-b-md bg-blue-100 p-0 text-blue-700">
                 <Link
-                  href="/chat"
+                  href="/dashboard/chat"
                   className="flex w-full flex-row items-center justify-between gap-2 rounded-b-md px-6 py-2 text-sm transition hover:bg-blue-200"
                 >
                   <p>Mulai Chat</p>

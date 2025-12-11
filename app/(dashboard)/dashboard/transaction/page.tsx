@@ -5,7 +5,7 @@ import TransactionTable from "@/components/transaction/transactions-table";
 
 export default function TransactionPage() {
   return (
-    <MaxWidthWrapper className="px-7 py-8">
+    <MaxWidthWrapper className="px-5 py-8">
       <div className="mx-auto flex max-w-4xl flex-col space-y-3">
         <div>
           <h1 className="flex flex-row items-center gap-2 text-2xl font-bold">
@@ -18,5 +18,5 @@ export default function TransactionPage() {
         <TransactionTable />
       </div>
     </MaxWidthWrapper>
-  )
+  );
 }
