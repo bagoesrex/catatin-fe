@@ -30,7 +30,7 @@ export default function HomeHeader() {
                 variant={"ghost"}
                 className="rounded-md px-4 py-2 text-gray-600 hover:bg-blue-400/10"
               >
-                <Link href="/auth/register">Masuk</Link>
+                <Link href="/auth/login">Masuk</Link>
               </Button>
               <Button
                 asChild
